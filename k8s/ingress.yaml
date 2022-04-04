@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: 3app-ingress
+  labels:
+    app: my-docker-apps
+  annotations:
+    kubernetes.io/ingress.class: addon-http-application-routing
+    ingress.kubernetes.io/rewrite-target: /
+
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /
+        backend:
+          serviceName: app1
+          servicePort: 80
+      - path: /v2
+        backend:
+          serviceName: app2
+          servicePort: 8080
+      - path: /v3
+        backend:
+          serviceName: app3
+          servicePort: 8080

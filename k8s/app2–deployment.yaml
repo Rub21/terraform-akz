@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app2
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: app2
+  template:
+    metadata:
+      labels:
+        run: app2
+    spec:
+      containers:
+      - image: gcr.io/google-samples/hello-app:1.0
+        imagePullPolicy: IfNotPresent
+        name: app2
+        ports:
+        - containerPort: 8080
+          protocol: TCP

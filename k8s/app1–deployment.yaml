@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app1
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      run: app1
+  template:
+    metadata:
+      labels:
+        run: app1
+    spec:
+      containers:
+      - image: punitporwal07/apache4ingress:1.0
+        imagePullPolicy: IfNotPresent
+        name: app1
+        ports:
+        - containerPort: 80
+          protocol: TCP
