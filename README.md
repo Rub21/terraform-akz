@@ -59,3 +59,11 @@ kubectl apply -f k8s/service2.yaml
 kubectl apply -f k8s/service3.yaml
 kubectl apply -f k8s/ingress.yaml
 ```
+
+## Set domain
+
+```sh
+ az network dns zone list | jq .[].name
+```
+
+Replace the results in k8s/ingress.yaml

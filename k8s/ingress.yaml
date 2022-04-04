@@ -10,7 +10,22 @@ metadata:
 
 spec:
   rules:
-  - http:
+  # - http:
+  #     paths:
+  #     - path: /
+  #       backend:
+  #         serviceName: app1
+  #         servicePort: 80
+  #     - path: /v2
+  #       backend:
+  #         serviceName: app2
+  #         servicePort: 8080
+  #     - path: /v3
+  #       backend:
+  #         serviceName: app3
+  #         servicePort: 8080
+    - host: web.c466ce9bbeb2411da697.northeurope.aksapp.io
+    http:
       paths:
       - path: /
         backend:
